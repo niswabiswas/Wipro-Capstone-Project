@@ -1,0 +1,8 @@
+#!/bin/bash 
+BASE="$(pwd)" 
+LOG_DIR="$BASE/logs" 
+mkdir -p "$LOG_DIR" 
+LOG_FILE="$LOG_DIR/main.log" 
+log() { 
+echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" | tee -a "$LOG_FILE" 
+}
