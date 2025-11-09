@@ -1,0 +1,11 @@
+nano#!/bin/bash 
+# log_monitor.sh - watches a log file for errors 
+source "$(pwd)/lib.sh" 
+read -p "Enter log file to monitor (default /var/log/syslog): " FILE 
+[ -z "$FILE" ] && FILE="/var/log/syslog" 
+log "Monitoring $FILE for errors..." 
+# watch for words like ERROR or FAIL 
+tail -f "$FILE" | grep --line-buffered -Ei "error|fail|critical" | while read line 
+do 
+log "ALERT: $line" 
+done 
