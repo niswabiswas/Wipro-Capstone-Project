@@ -1,0 +1,11 @@
+#!/bin/bash 
+source "$(pwd)/lib.sh" 
+log "Running system update..." 
+if sudo apt update -y && sudo apt upgrade -y; then 
+log "System updated successfully." 
+else 
+log "System update failed!" 
+fi 
+log "Cleaning unused packages and cache..." 
+sudo apt autoremove -y && sudo apt clean 
+log "Cleanup completed!"
