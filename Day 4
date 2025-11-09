@@ -1,0 +1,22 @@
+#!/bin/bash 
+# maintenance_menu.sh - system maintenance suite 
+while true; do
+ echo "" 
+ echo "===== SYSTEM MAINTENANCE MENU =====" 
+  echo "1) Run Backup" 
+  echo "2) Run System Update & Clean Up" 
+  echo "3) Run Log Monitor" 
+  echo "4) Exit" 
+  echo "===================================" 
+  read -p "Choose an option: " choice 
+  case $choice in 
+    1) ./backup.sh ;; 
+    2) ./update_cleanup.sh ;; 
+    3) ./log_monitor.sh ;; 
+    4) 
+      echo "Exiting... Goodbye!" 
+      break 
+      ;; 
+    *) echo "Invalid choice, try again." ;; 
+  Esac 
+done
